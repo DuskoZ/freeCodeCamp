@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inconsolata, "Segoe UI", monospace;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #f3f3f3;
+  margin: 0;
+  line-height: 1.2;
+}
+
+body::before {
+  content: '';
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: linear-gradient(115deg, rgba(39, 121, 73, 0.5), rgba(50, 148, 91, 0.3)), url("https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/code-editoren-t.jpg");
+}
+
+header {
+  padding: 0 0.625rem;
+  margin-bottom: 2.5rem;
+}
+
+#title {
+  margin: 20px auto 10px auto;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.5rem;
+  text-shadow: 3px 3px 5px #000;
+}
+
+#description {
+  font-size: 1.25rem;
+  font-style: italic;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 3px 3px 5px #000;
+}
+
+input, select, textarea, button {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+main {
+  width: 100%;
+  margin: 3rem auto 1rem auto;
+}
+
+@media (min-width: 576px) {
+  main {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    max-width: 720px;
+  }
+}
+
+/* forma */
+
+form {
+  border-radius: 0.5rem;
+  background: rgba(22, 66, 40, 0.85);
+  /*margin: 3rem auto;*/
+  padding: 2.5rem 0.625rem;
+}
+
+@media (min-width: 500px) {
+form {
+    padding: 2.5rem;
+  }
+}
+
+span {
+  color: red;
+  font-weight: 500;
+}
+
+.element-forme {
+  margin: 0 auto 1rem auto;
+  padding: 0.25rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.polja {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #164228;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0.375rem;
+}
+
+.polja:focus, .o-meni {
+  outline: 0;
+}
+
+.radio-checkbox {
+  display: inline-block;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  margin-right: 0.625rem;
+}
+
+.desni .radio-checkbox {
+  margin-left: 2rem;
+}
+
+.cekiranje {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+}
+
+.o-meni {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem;
+  color: #164228;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0.375rem;
+}
+
+.dugme {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.75rem auto;
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+  background: #164228;
+}
+
+.dugme:hover{
+  color: #164228;
+  background: #fff;
+}
+
+footer {
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 3px 3px 5px #000;
+}

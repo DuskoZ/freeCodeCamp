@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>Formular</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="DuskoZ">
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<main>
+		<header>
+			<h1 id="title">Formular za prijavu</h1>
+			<p id="description">Hvala vam na izdvojenom vremenu</p>
+		</header>
+
+		<div class="container">
+			<form id="survey-form" action="hvalavam.html" method="post">
+				<div class="element-forme">
+					<label for="name" id="name-label">Ime: <span>(*)</span></label>
+          <input type="text" id="name" class="polja" name="ime" placeholder="Unesite Vaše ime" required>
+          </div>
+
+        <div class="element-forme">
+          <label for="surname">Prezime: <span>(*)</span></label>
+          <input type="text" id="surname" class="polja" name="prezime" placeholder="Unesite Vaše prezime" required>
+        </div>
+
+        <div class="element-forme">
+          <label for="number" id="number-label">Starost (opcionalno)</label>
+          <input type="number" id="number" class="polja" name="starost" min="18" max="99" maxlength="2" placeholder="Godine starosti">
+        </div>
+
+        <div class="element-forme">
+          <label>Vaš pol:</label>
+          <label for="muski"><input type="radio" name="gender" value="muški" id="muski" class="radio-checkbox" required checked> Muški</label>
+          <label for="zenski"><input type="radio" name="gender" value="ženski" id="zenski" class="radio-checkbox">Ženski</label>
+          <label for="drugo"><input type="radio" name="gender" value="nije_se_izjasnio" id="drugo" class="radio-checkbox">Ne želim da se izjasnim</label>
+        </div>
+
+        <div class="element-forme">
+          <label for="email" id="email-label">Email: <span>(*)</span></label>
+          <input type="email" id="email" class="polja" name="email" placeholder="Unesite Vašu e-mail adresu" required>
+        </div>
+
+        <div class="element-forme">
+          <label for="dropdown">Opština prebivališta <span>(*)</span></label>
+          <select id="dropdown" class="polja" name="opstina" required>
+            <option disabled selected value>Odaberite opštinu prebivališta</option>
+            <option value="bijeljina">Bijeljina</option>
+            <option value="brcko">Brčko</option>
+            <option value="donji_žabar">Donji Žabar</option>
+            <option value="zvornik">Zvornik</option>
+            <option value="lopare">Lopare</option>
+            <option value="pelagicevo">Pelagićevo</option>              <option value="samac">Šamac</option>
+            <option value="ugljevik">Ugljevik</option>
+          </select>
+        </div>
+
+        <div class="element-forme">
+          <label>Internet tehnologije koje poznajete:</label>
+          <div class="cekiranje">
+
+          <div class="lijevi">
+            <label for="html"><input type="checkbox" name="internetteh" value="html5" class="radio-checkbox" id="html">HTML5</label>
+            <label for="css"><input type="checkbox" name="internetteh" value="css3" class="radio-checkbox" id="css">CSS3</label>
+            <label for="js"><input type="checkbox" name="internetteh" value="javascript_es6" class="radio-checkbox" id="js">JavaScript ES6</label>
+            <label for="react"><input type="checkbox" name="internetteh" value="react" class="radio-checkbox" id="react">React</label>
+          </div>
+          <div class="desni">
+            <label for="php">
+            <input type="checkbox" name="internetteh" value="php" id="php" class="radio-checkbox">PHP</label>
+            <label for="php">
+            <input type="checkbox" name="internetteh" value="python" id="python" class="radio-checkbox">Python</label>
+            <label for="ruby">
+            <input type="checkbox" name="internetteh" value="ruby" id="ruby" class="radio-checkbox">Ruby</label>
+            <label for="java">
+            <input type="checkbox" name="internetteh" value="java" id="java" class="radio-checkbox">Java</label>
+          </div>
+        </div>
+        </div>
+
+        <div class="element-forme">
+          <label>Opišite sebe ukratko:</label>
+          <textarea name="o-meni" class="o-meni" rows="8" cols="50" placeholder="Moje navike, hobiji, poznavanje jezika..."></textarea>
+        </div>
+
+        <div class="element-forme">
+          <button id="submit" type="submit" class="dugme" name="posalji">Pošalji formular</button>
+        </div>
+
+      </form>
+    </div>
+    <footer>
+      <p>2018-2021</p>
+    </footer>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </main>
+  </body>
+</html>
