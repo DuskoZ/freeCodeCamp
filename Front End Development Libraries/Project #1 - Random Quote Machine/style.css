@@ -1,0 +1,72 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ea8c4d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Courgette, cursive;
+  font-size: 1.25rem;
+}
+
+#quote-box {
+  background-color: #fff;
+  width: 500px;
+  padding: 30px 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2), 0px 0px 20px 12px rgba(0, 0, 0, 0.19);
+}
+
+#quote {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+#author {
+  text-align: right;
+  font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.125rem;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+#new-quote {
+  width: 100px;
+  border-radius: 7px;
+  background-color: #fff;
+  border: 2px solid #1DA1F2;
+  font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+#new-quote:hover {
+  background-color: #1DA1F2;
+  color: #fff;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+#color {
+  position: absolute;
+  bottom: 50px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+}
+
