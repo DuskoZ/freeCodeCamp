@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>MDN Web Docs | Array - JavaScript</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DuskoZ" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Array | JavaScript</header>
+
+      <!-- emmet command: ul>li*11>a.nav-link -->
+      <ul>
+        <li class="nepar"><a href="#Description" class="nav-link">Description</a></li>
+        <li><a href="#Common_operations" class="nav-link">Common operations</a></li>
+        <li class="nepar"><a href="#Accessing_array_elements" class="nav-link">Accessing array elements</a></li>
+        <li><a href="#Constructor" class="nav-link">Constructor</a></li>
+        <li class="nepar"><a href="#Static_properties" class="nav-link">Static properties</a></li>
+        <li><a href="#Static_methods" class="nav-link">Static methods</a></li>
+        <li class="nepar"><a href="#Instance_properties" class="nav-link">Instance properties</a></li>
+        <li><a href="#Instance_methods" class="nav-link">Instance methods</a></li>
+        <li class="nepar"><a href="#Examples" class="nav-link">Examples</a></li>
+        <li><a href="#See_also" class="nav-link">See also</a></li>
+        <li class="nepar poslednji"><a href="#Reference" class="nav-link">Reference</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-doc">
+      <section class="main-section" id="Description">
+        <header>Description</header>
+        <article>
+          <p>
+            Arrays are list-like objects whose prototype has methods to perform
+            traversal and mutation operations. Neither the length of a
+            JavaScript array nor the types of its elements are fixed. Since an
+            array's length can change at any time, and data can be stored at
+            non-contiguous locations in the array, JavaScript arrays are not
+            guaranteed to be dense; this depends on how the programmer chooses
+            to use them. In general, these are convenient characteristics; but
+            if these features are not desirable for your particular use, you
+            might consider using typed arrays.
+          </p>
+          <p>
+            Arrays cannot use strings as element indexes (as in an associative
+            array) but must use integers. Setting or accessing via non-integers
+            using bracket notation (or dot notation) will not set or retrieve an
+            element from the array list itself, but will set or access a
+            variable associated with that array's object property collection.
+            The array's object properties and list of array elements are
+            separate, and the array's traversal and mutation operations cannot
+            be applied to these named properties.
+          </p>
+        </article>
+      </section>
+
+      <section class="main-section" id="Common_operations">
+        <header>Common operations</header>
+
+        <p class="podnaslov">Create an Array</p>
+        <pre class="kod">
+          <code>
+            let fruits = ['Apple', 'Banana']
+            console.log(fruits.length)
+            // 2
+          </code>
+        </pre>
+
+        <p class="podnaslov">Loop over an Array</p>
+        <pre class="kod">
+          <code>
+              let first = fruits[0]
+              // Apple
+              let last = fruits[fruits.length - 1]
+              // Banana
+          </code>
+        </pre>
+
+        <p class="podnaslov">Add an item to the end of an Array</p>
+        <pre class="kod">
+          <code>
+            let newLength = fruits.push('Orange')
+            // ["Apple", "Banana", "Orange"]
+          </code>
+        </pre>
+
+        <p class="podnaslov">Remove an item from the end of an Array</p>
+        <pre class="kod">
+          <code>
+            let last = fruits.pop() // remove Orange (from the end)
+            // ["Apple", "Banana"]
+          </code>
+        </pre>
+
+        <p class="podnaslov">Remove an item from the beginning of an Array</p>
+        <pre class="kod">
+          <code>
+            let first = fruits.shift() // remove Apple from the front
+            // ["Banana"]
+          </code>
+        </pre>
+
+        <p class="podnaslov">Add an item to the beginning of an Array</p>
+        <pre class="kod">
+          <code>
+            let newLength = fruits.unshift('Strawberry') // add to the front
+            // ["Strawberry", "Banana"]
+          </code>
+        </pre>
+
+        <p class="podnaslov">Find the index of an item in the Array</p>
+        <pre class="kod">
+          <code>
+            fruits.push('Mango')
+            // ["Strawberry", "Banana", "Mango"]
+            
+            let pos = fruits.indexOf('Banana')
+            // 1
+          </code>
+
+        </pre>
+        <p class="podnaslov">Remove an item by index position</p>
+        <pre class="kod">
+          <code>
+            let removedItem = fruits.splice(pos, 1) // this is how to remove an item
+            // ["Strawberry", "Mango"]
+          </code>
+        </pre>
+
+        <p class="podnaslov">Remove items from an index position</p>
+        <pre class="kod">
+          <code>
+            let vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot']
+            console.log(vegetables)
+            // ["Cabbage", "Turnip", "Radish", "Carrot"]
+            
+            let pos = 1
+            let n = 2
+            
+            let removedItems = vegetables.splice(pos, n)
+            // this is how to remove items, n defines the number of items to be removed,
+            // starting at the index position specified by pos and progressing toward the end of array.
+            
+            console.log(vegetables)
+            // ["Cabbage", "Carrot"] (the original array is changed)
+            
+            console.log(removedItems)
+            // ["Turnip", "Radish"]            
+          </code>
+        </pre>
+
+        <p class="podnaslov">Copy an Array</p>
+        <pre class="kod">
+          <code>
+            let shallowCopy = fruits.slice() // this is how to make a copy
+            // ["Strawberry", "Mango"]
+          </code>
+        </pre>
+      </section>
+      
+      <section class="main-section" id="Accessing_array_elements">
+        <header>Accessing array elements</header>
+        <p>JavaScript arrays are zero-indexed. The first element of an array is at index 0, and the last element is at the index value equal to the value of the array's length property minus 1.</p>
+
+        <p>Using an invalid index number returns <code>undefined</code>.</p>
+
+        <pre class="kod">
+          <code>
+            let arr = ['this is the first element', 'this is the second element', 'this is the last element']
+            console.log(arr[0])              // logs 'this is the first element'
+            console.log(arr[1])              // logs 'this is the second element'
+            console.log(arr[arr.length - 1]) // logs 'this is the last element'
+          </code>
+        </pre>
+      </section>
+
+      <section class="main-section" id="Constructor">
+        <header>Constructor</header>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array()</dt>
+            <dd>Creates a new <code>Array</code> object.</dd>
+          </dl>
+        </article>
+
+      </section>
+
+      <section class="main-section" id="Static_properties">
+        <header>Static properties</header>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>get Array[@@species]</dt>
+            <dd>The constructor function is used to create derived objects.</dd>
+          </dl>
+        </article>
+
+      </section>
+
+      <section class="main-section" id="Static_methods">
+        <header>Static methods</header>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.from()</dt>
+            <dd>Creates a new <code>Array</code> instance from an array-like or iterable object.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.isArray()</dt>
+            <dd>Returns <code>true</code> if the argument is an array, or <code>false</code> otherwise.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.of()</dt>
+            <dd>Creates a new <code>Array</code> instance with a variable number of arguments, regardless of number or type of the arguments.</dd>
+          </dl>
+        </article>
+
+      </section>
+
+      <section class="main-section" id="Instance_properties">
+        <header>Instance properties</header>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.length</dt>
+            <dd>Reflects the number of elements in an array.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype[@@unscopables]</dt>
+            <dd>A symbol containing property names to exclude from a <code>with</code> binding scope.</dd>
+          </dl>
+        </article>
+
+      </section>
+
+      <section class="main-section" id="Instance_methods">
+        <header>Instance methods</header>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.concat()</dt>
+            <dd>Returns a new array that is this array joined with other array(s) and/or value(s).</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.every()</dt>
+            <dd>Returns <code>true</code> if every element in this array satisfies the testing function.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.filter()</dt>
+            <dd>Returns a new array containing all elements of the calling array for which the provided filtering function returns <code>true</code>.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.findIndex()</dt>
+            <dd>Returns the found index in the array, if an element in the array satisfies the testing function, or -1 if not found.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.forEach()</dt>
+            <dd>Calls a function for each element in the array.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.includes()</dt>
+            <dd>Determines whether the array contains a value, returning <code>true</code> or <code>false</code> as appropriate.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.indexOf()</dt>
+            <dd>Returns the first (least) index of an element within the array equal to an element, or -1 if none is found.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.join()</dt>
+            <dd>Joins all elements of an array into a string.</dd>
+          </dl>
+        </article>
+
+        <article class="method">
+          <dl class="method_name">
+            <dt>Array.prototype.map()</dt>
+            <dd>Returns a new array containing the results of calling a function on every element in this array.</dd>
+          </dl>
+        </article>
+
+        <p>For a full list see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods">MDN</a></p>
+
+      </section>
+
+      <section class="main-section" id="Examples">
+        <header>Examples</header>
+        <p class="podnaslov">
+          Creating an array
+        </p>
+        <p>
+          The following example creates an array, msgArray, with a length of 0, then assigns values to msgArray[0] and msgArray[99], changing the length of the array to 100.
+        </p>
+        <pre class="kod">
+          <code>
+            let msgArray = []
+            msgArray[0] = 'Hello'
+            msgArray[99] = 'world'
+            
+            if (msgArray.length === 100) {
+              console.log('The length is 100.')
+            }
+          </code>
+        </pre>
+
+        <p class="podnaslov">
+          Using an array to tabulate a set of values
+        </p>
+        <pre class="kod">
+          <code>
+            values = []
+            for (let x = 0; x < 10; x++){
+             values.push([
+              2 ** x,
+              2 * x ** 2
+             ])
+            }
+            console.table(values)
+          </code>
+        </pre>
+
+        <p>
+          Results in
+        </p>
+        <pre class="kod">
+          <code>
+            // The first column is the index
+            0	1	0
+            1	2	2
+            2	4	8
+            3	8	18
+            4	16	32
+            5	32	50
+            6	64	72
+            7	128	98
+            8	256	128
+            9	512	162
+          </code>
+        </pre>
+      </section>
+
+      <section class="main-section" id="See_also">
+        <header>See also</header>
+          <ul>
+            <li><a href="https://www.w3schools.com/js/default.asp" class="bottom-link">W3 Schools - JavaScript</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="bottom-link">MDN Web Docs</a></li>
+            <li><a href="https://www.javascript.com/" class="bottom-link">JavaScript.com</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/JavaScript" class="bottom-link">JavaScript - Wikipedia</a></li>
+            <li><a href="https://javascript.info/" class="bottom-link">JavaScript.info</a></li>
+          </ul>
+      </section>
+
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <p>
+          All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN</a>
+        </p>
+      </section>
+
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

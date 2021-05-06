@@ -1,0 +1,160 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    min-width: 300px;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+#navbar {
+    position: fixed;
+    min-width: 300px;
+    top: 0px;
+    left: 0px;
+    width: 310px;
+    height: 100%;
+    border-right: 5px solid #882020;    
+}
+
+header {
+    color: #882020;
+    margin: 10px;
+    margin-left: 0px;
+    text-align: left;
+    font-size: 1.8em;
+    font-weight: 400;
+  }
+
+  nav > header {
+    padding-left: 30px;
+  }
+
+  #navbar ul {
+    height: 88%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  #navbar li {
+    color: #000;
+    border-top: 1px solid #882020;
+    list-style: none;
+    position: relative;
+    width: 100%;
+  }
+  
+  #navbar a {
+    display: block;
+    padding: 10px 30px;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    font-weight: 500;
+    color: #882020;
+    text-align: center;
+  }
+
+  .nepar {
+      background-color: rgba(109, 14, 14, 0.3); /*rgba(136,32,32,0.3);*/
+  }
+
+  .poslednji {
+    border-bottom: 1px solid #882020;
+  }
+
+  #main-doc {
+    position: absolute;
+    margin-left: 320px;
+    margin-bottom: 110px;
+    padding: 20px;
+  }
+
+  section article {
+    color: #000;
+    margin: 20px;
+    font-size: 0.95em;
+  }
+
+  section li {
+    margin: 10px 0px 0px 15px;
+    list-style: square;
+  }
+
+  .kod {
+    display: block;
+    text-align: left;
+    white-space: pre-line;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.8;
+    font-size: 1em;
+    background-color: rgba(109, 14, 14, 0.3);
+    padding: 15px;
+    margin-left: 30px;
+    margin-right: 20px;
+    border-left: 5px solid #882020;
+    font-family: consolas, "Liberation Mono", courier, monospace;
+  }
+
+  dd > code, p > code {
+    font-weight: 400;
+    font-size: 0.9em;
+    background-color: rgba(109, 14, 14, 0.3);
+    font-family: consolas, "Liberation Mono", courier, monospace;
+  }
+
+  .method_name dt {
+    font-family: consolas, "Liberation Mono", courier, monospace;
+    font-weight: 700;
+    margin-bottom: 10px; 
+  }
+
+  .podnaslov {
+    font-weight: 600;
+    font-size: 1em;
+  }
+
+@media only screen and (max-width: 750px) {
+
+  #navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 270px;
+    z-index: 1;
+    border-bottom: 5px solid #882020;
+    border-right: none;
+  }
+
+  #navbar ul {
+    height: 201px;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-top: 275px;
+    margin-left: 0;
+  }
+
+}
+
+@media (max-width: 500px) {
+  nav > header {
+    text-align: center;
+  }
+}
+
+@media (min-width: 500px){
+
+  .podnaslov {
+    text-decoration: none;
+  }
+
+}
