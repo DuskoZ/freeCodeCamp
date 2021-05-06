@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>My CMYK dizajn</title>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="author" content="DuskoZ">
+	  <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <header id="header">
+        <div class="logo">
+          <img id="header-img" src="./photos/mycmyk.png" alt="mycmyk logo">
+        </div>
+        <nav id="nav-bar">
+          <ul>
+            <li><a href="#ponuda"class="nav-link">Ponuda</a></li>
+            <li><a href="#izrada"class="nav-link">Izrada</a></li>
+            <li><a href="#cijene"class="nav-link">Cijene</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main id="sadrzaj">
+
+        <section id="naslov">
+          <h2>Dizajn za novo doba</h2>
+          <form id="form" class="form" action="https://www.freecodecamp.com/email-submit" method="post">
+            <input type="email" id="email" name="email" placeholder="Unesite Vašu e-mail adresu" required>
+            <input type="submit" id="submit" name="submit" value="Prijavi se na novosti" class="dugme">
+          </form>
+        </section>
+
+        <div class="container">
+          <!--prva sekcija sa nav bara-->
+          <section id="ponuda">
+            <div class="red">
+              <div class="ikonica">
+                <img src="./photos/creativity.png" alt="dizajn grafičkih rješenja" class="ikonica_edit">
+              </div>
+              <div class="opis">
+                <h2>Grafički dizajn</h2>
+                <p>Izrada grafičkih rješenja kao što su logotipi, baneri, Facebook i Instagram vizuali, brošure, stikeri, vizit-karte...</p>
+              </div>
+            </div>
+            <div class="red">
+              <div class="ikonica">
+                <img src="./photos/printer.png" alt="štampa velikog formata" class="ikonica_edit">
+              </div>
+              <div class="opis">
+                <h2>Štampa idejnih rješenja</h2>
+                <p>Vršimo digitalnu štampu različitih formata na najmodernijim uređajima i to sve u rekordnom roku...</p>
+              </div>
+            </div>
+            <div class="red">
+              <div class="ikonica">
+                <img src="./photos/web-design.png" alt="web dizajn" class="ikonica_edit">
+              </div>
+              <div class="opis">
+                <h2>Web dizajn</h2>
+                <p>Pored grafičkog dizajna radimo i internet prezentacije za Vas ili Vašu firmu...</p>
+              </div>
+            </div>
+          </section>
+          <!--druga sekcija sa nav bara-->
+          <section id="izrada">
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/5LMU-zB8Sro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </section>
+          <!--treca sekcija sa nav bara-->
+          <section id="cijene">
+            <div class="ponuda" id="prva">
+              <div class="naslov">
+                Osnovni paket
+              </div>
+              <h2> 300KM </h2>
+              <ol>
+                <li>Izrada logotipa</li>
+                <li>100 vizit-kartica</li>
+                <li>Dizajn web stranice</li>
+              </ol>
+              <button type="button" name="button" class="dugme">Naruči</button>
+            </div>
+            <div class="ponuda" id="druga">
+              <div class="naslov">
+                Srednji paket
+              </div>
+              <h2> 600KM </h2>
+              <ol>
+                <li>Izrada logotipa</li>
+                <li>200 vizit-kartica</li>
+                <li>Web sajt do 3 stranice</li>
+              </ol>
+              <button type="button" name="button" class="dugme">Naruči</button>
+            </div>
+            <div class="ponuda" id="treca">
+              <div class="naslov">
+                Premium paket
+              </div>
+              <h2> 900KM </h2>
+              <ol>
+                <li>Logotip i vizuali</li>
+                <li>Reklamni materijal</li>
+                <li>Web sajt do 10 stranica</li>
+              </ol>
+              <button type="button" name="button" class="dugme">Naruči</button>
+            </div>
+          </section>
+          <footer>
+            <ul>
+              <li><a href="#">O nama</a></li>
+              <li><a href="#">Kontakt</a></li>
+              <li><a href="#naslov">Na vrh</a></li>
+            </ul>
+            <span>23design, 2018-2021</span>
+          </footer>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
