@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-dark: #333;
+    --clr-light: #fff;
+    --clr-accent: #4499e0;
+}
+
+body {
+    font-family: "Inconsolata", "Segoe UI", "Roboto", sans-serif;
+    color: var(--clr-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
