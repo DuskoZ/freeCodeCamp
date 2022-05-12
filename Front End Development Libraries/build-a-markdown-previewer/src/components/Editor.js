@@ -1,14 +1,13 @@
-import React from "react";
-
 const Editor = (props) => {
     return (
         <textarea
             name="editor"
-            id="editor"
             rows="10"
+            id="editor"
             className="text-editor"
-            value={props.placeholder}
-        ></textarea>
+            onChange={props.onChange}
+            value={props.markdown}
+        />
     );
 };
 

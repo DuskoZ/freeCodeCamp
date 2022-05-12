@@ -1,14 +1,15 @@
-// import React from "react";
+import { marked } from "marked";
 
-// const Preview = (props) => {
-//     return (
-//         <div
-//             dangerouslySetInnerHTML={{
-//                 __html: marked(props.markdown, { renderer: renderer }),
-//             }}
-//             id="preview"
-//         />
-//     );
-// };
+const Preview = (props) => {
+    return (
+        <div
+            id="preview"
+            className="text-start"
+            dangerouslySetInnerHTML={{
+                __html: marked(props.markdown, { renderer: props.renderer }),
+            }}
+        />
+    );
+};
 
-// export default Preview;
+export default Preview;
