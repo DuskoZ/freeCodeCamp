@@ -1,8 +1,7 @@
-import "./App.css";
-// import Editor from "./components/Editor";
-// import Preview from "./components/Preview";
-import React, { useState } from "react";
-import { marked, Renderer } from "marked";
+import React from "react";
+import { marked } from "marked";
+import Editor from "./components/Editor";
+import Preview from "./components/Preview";
 
 marked.setOptions({
     breaks: true,
@@ -13,45 +12,37 @@ renderer.link = function (href, title, text) {
     return `<a target="_blank" href="${href}">${text}</a>`;
 };
 
-const Preview = (props) => {
-    return (
-        <div
-            dangerouslySetInnerHTML={{
-                __html: marked(props.markdown, { renderer: renderer }),
-            }}
-            id="preview"
-        />
-    );
-};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            markdown: placeholder,
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-const App = () => {
-    const { text, setText } = useState(placeholder);
+    handleChange(e) {
+        this.setState({
+            markdown: e.target.value,
+        });
+    }
 
-    return (
-        <div className="text-center px-4">
-            <h1 className="p-4">Markdown Previewer</h1>
+    render() {
+        return (
+            <div className="text-center px-4">
+                <h1 className="p-4">Markdown Previewer</h1>
+                <Editor
+                    markdown={this.state.markdown}
+                    onChange={this.handleChange}
+                />
+                <h3 className="mt-3">Output</h3>
+                <Preview markdown={this.state.markdown} renderer={renderer} />
+            </div>
+        );
+    }
+}
 
-            {/* <Editor
-                placeholder={placeholder}
-                onChange={(e) => setText(e.target.value)}
-            /> */}
-
-            <textarea
-                name="editor"
-                id="editor"
-                rows="10"
-                className="text-editor"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            ></textarea>
-
-            <h3 className="mt-3">Output</h3>
-            <Preview markdown={text} />
-        </div>
-    );
-};
-
-const placeholder = `# Welcome to my React Markdown Previewer!
+const placeholder = `# React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
