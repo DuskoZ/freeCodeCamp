@@ -8,16 +8,20 @@
 
 :root {
     --clr-dark: #333;
-    --clr-light: #fff;
+    --clr-light: #f0f7f4;
     --clr-accent: #40826d;
+    --clr-accent2: #5f9ea0;
+    --clr-bg: #a0e4f5;
 
-    --box-shadow-light: 0 0 15px rgba(0, 0, 0, 0.15);
+    --box-shadow-light: 0 0 15px rgba(0, 0, 0, 0.25);
 }
+
+/* General */
 
 body {
     font-family: "Inconsolata", "Segoe UI", "Roboto", sans-serif;
     color: var(--clr-dark);
-    /* background-color: var(--clr-accent); */
+    background-color: var(--clr-bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -26,41 +30,115 @@ img {
     max-width: 100%;
 }
 
+.title {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: var(--clr-accent);
+}
+
 .box-shadow {
     box-shadow: var(--box-shadow-light);
+    position: relative;
+}
+
+.component-title {
+    color: var(--clr-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--clr-bg);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    padding: 0.25em 0.5em;
+    border: 3px solid var(--clr-accent);
+    border-radius: 0.5em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Layout */
+
+.components {
+    display: flex;
+    gap: 3em;
+    margin-bottom: 2em;
+}
+
+.editor-container,
+.preview-container {
+    border: 3px solid var(--clr-accent);
+    background-color: var(--clr-light);
+    border-radius: 0.75em;
+    min-height: 400px;
+}
+
+/* Editor */
+
+.editor-container {
+    flex: 3;
+}
+
+/* needed to trim scrollbar corners */
+.overflow {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.625em;
+    overflow: hidden;
 }
 
 .text-editor {
     color: inherit;
+    background-color: var(--clr-light);
     width: 100%;
     height: 100%;
     font-size: 1.25rem;
     padding: 1em;
+    padding-top: 2em;
     border: none;
-    /* border-radius: 0.5em; */
+    border-radius: 0.5em;
     outline: none;
+    resize: none;
 }
 
-/* .text-editor:focus {
-    box-shadow: 0 0 15px rgba(64, 130, 109, 0.25);
-} */
+/* Preview */
 
 .preview-container {
-    padding: 2.5em;
+    padding: 2em;
+    flex: 4;
 }
 
 #preview {
-    padding-block: 2em;
-    /* background-color: #5f9ea0; */
+    padding-block-start: 1.5em;
 }
 
 #preview code {
-    font-size: 0.75rem;
-    font-weight: 700;
-    /* background-color: var(--clr-dark); */
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #7c0000;
     padding-block: 5px;
-    /* border-radius: .25rem; */
 }
 
 #preview pre {
+    color: var(--clr-accent2);
+}
+
+/* Media Query */
+
+@media screen and (max-width: 75rem) {
+    .components {
+        flex-direction: column;
+    }
+
+    .overflow,
+    .text-editor {
+        min-height: 400px;
+    }
+
+    .preview-container {
+        margin-top: 1em;
+    }
 }
