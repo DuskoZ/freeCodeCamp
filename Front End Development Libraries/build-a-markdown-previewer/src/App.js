@@ -30,18 +30,21 @@ class App extends React.Component {
     render() {
         return (
             <div className="container text-center p-4">
-                <h1 className="text-primary p-4">Markdown Previewer</h1>
+                <h1 className="p-5 mb-2 title">Markdown Previewer</h1>
 
-                <div className="container-fluid row mt-4">
-                    <div class="col-xl-5 box-shadow">
-                        <Editor
-                            markdown={this.state.markdown}
-                            onChange={this.handleChange}
-                        />
+                <div className="container-fluid mt-4 components">
+                    <div className="box-shadow editor-container">
+                        <h3 className="component-title">Editor</h3>
+                        <div className="overflow">
+                            <Editor
+                                markdown={this.state.markdown}
+                                onChange={this.handleChange}
+                            />
+                        </div>
                     </div>
 
-                    <div class="col-xl-7 box-shadow preview-container">
-                        <h3 className="output">Output</h3>
+                    <div className="box-shadow preview-container">
+                        <h3 className="component-title">Output</h3>
                         <Preview
                             markdown={this.state.markdown}
                             renderer={renderer}
