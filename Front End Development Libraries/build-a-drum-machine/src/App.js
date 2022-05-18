@@ -1,3 +1,7 @@
+import React from "react";
+import { useState } from "react";
+import DrumPad from "./components/DrumPad";
+
 const bankOne = [
     {
         keyCode: 81,
@@ -112,25 +116,46 @@ const bankTwo = [
     },
 ];
 
-const activeStyle = {
-    backgroundColor: "var(--clr-accent)",
-    boxShadow: "0 3px var(--clr-accent)",
-    height: 77,
-    marginTop: 13,
-};
+// function App() {
+//     return (
+//         <div className="App">
+//             <h1>Drum</h1>
+//         </div>
+//     );
+// }
 
-const inactiveStyle = {
-    backgroundColor: "grey",
-    marginTop: 10,
-    boxShadow: "3px 3px 5px black",
-};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            power: true,
+            display: String.fromCharCode(160),
+            currentPadBank: bankOne,
+            currentPadBankId: "Heater Kit",
+            sliderValue: 0.3,
+        };
+        this.powerControl = this.powerControl.bind(this);
+        this.selectBank = this.selectBank.bind(this);
+        this.adjustVolume = this.adjustVolume.bind(this);
+        this.clearDisplay = this.clearDisplay.bind(this);
+        this.displayClipName = this.displayClipName.bind(this);
+    }
 
-function App() {
-    return (
-        <div className="App">
-            <h1>Drum</h1>
-        </div>
-    );
+    powerControl() {
+        this.setState({
+            power: !this.state.power,
+            display: String.fromCharCode(160),
+        });
+    }
+
+    selectBank() {}
+    adjustVolume() {}
+    clearDisplay() {}
+    displayClipName() {}
+
+    render() {
+        return <h1>Drum</h1>;
+    }
 }
 
 export default App;
