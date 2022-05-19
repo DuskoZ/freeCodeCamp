@@ -1,8 +1,8 @@
 import React from "react";
 
 const activeStyle = {
-    backgroundColor: "var(--clr-accent)",
-    boxShadow: "0 3px var(--clr-accent)",
+    backgroundColor: "orange",
+    boxShadow: "0 3px orange",
     height: 77,
     marginTop: 13,
 };
@@ -38,9 +38,42 @@ class DrumPad extends React.Component {
         }
     }
 
-    activatePad() {}
+    activatePad() {
+        if (this.props.power) {
+            if (this.state.padStyle.backgroundColor === "orange") {
+                this.setState({
+                    padStyle: inactiveStyle,
+                });
+            } else {
+                this.setState({
+                    padStyle: activeStyle,
+                });
+            }
+        } else if (this.state.padStyle.marginTop === 13) {
+            this.setState({
+                padStyle: inactiveStyle,
+            });
+        } else {
+            this.setState({
+                padStyle: {
+                    height: 77,
+                    marginTop: 13,
+                    backgroundColor: "grey",
+                    boxShadow: "0 3px grey",
+                },
+            });
+        }
+    }
 
-    playSound() {}
+    playSound() {
+        const sound = document.getElementById(this.props.keyTrigger);
+        sound.currentTime = 0;
+        sound.play();
+        this.activatePad();
+
+        setTimeout(() => this.activatePad(), 100);
+        this.props.updateDisplay(this.props.clipId.replace(/-/g, " "));
+    }
 
     render() {
         return <div></div>;
