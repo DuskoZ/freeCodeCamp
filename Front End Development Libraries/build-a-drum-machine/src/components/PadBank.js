@@ -1,4 +1,4 @@
-import DrumPad from "./components/DrumPad";
+import DrumPad from "./DrumPad";
 
 const PadBank = (props) => {
     let padBank;
@@ -6,11 +6,11 @@ const PadBank = (props) => {
         padBank = props.currentPadBank.map((drumObject, i, padBankArray) => {
             return (
                 <DrumPad
-                    clip={padBankArray[i].url}
-                    clipId={padBankArray[i].id}
+                    power={props.power}
                     keyCode={padBankArray[i].keyCode}
                     keyTrigger={padBankArray[i].keyTrigger}
-                    power={props.power}
+                    clipId={padBankArray[i].id}
+                    clip={padBankArray[i].url}
                     updateDisplay={props.updateDisplay}
                 />
             );
@@ -19,11 +19,11 @@ const PadBank = (props) => {
         padBank = props.currentPadBank.map((drumObject, i, padBankArray) => {
             return (
                 <DrumPad
-                    clip="#"
-                    clipId={padBankArray[i].id}
+                    power={props.power}
                     keyCode={padBankArray[i].keyCode}
                     keyTrigger={padBankArray[i].keyTrigger}
-                    power={props.power}
+                    clipId={padBankArray[i].id}
+                    clip="#"
                     updateDisplay={props.updateDisplay}
                 />
             );
