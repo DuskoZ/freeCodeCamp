@@ -76,7 +76,21 @@ class DrumPad extends React.Component {
     }
 
     render() {
-        return <div></div>;
+        return (
+            <div
+                className="drum-pad"
+                id={this.props.clipId}
+                style={this.state.padStyle}
+                onClick={this.playSound}
+            >
+                <audio
+                    id={this.props.keyTrigger}
+                    className="audio-clip"
+                    src={this.props.clip}
+                />
+                {this.props.keyTrigger}
+            </div>
+        );
     }
 }
 
