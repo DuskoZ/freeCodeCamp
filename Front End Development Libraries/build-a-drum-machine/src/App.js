@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import DrumPad from "./components/DrumPad";
+import PadBank from "./components/PadBank";
 
 const bankOne = [
     {
@@ -116,14 +115,6 @@ const bankTwo = [
     },
 ];
 
-// function App() {
-//     return (
-//         <div className="App">
-//             <h1>Drum</h1>
-//         </div>
-//     );
-// }
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -148,13 +139,108 @@ class App extends React.Component {
         });
     }
 
-    selectBank() {}
-    adjustVolume() {}
-    clearDisplay() {}
-    displayClipName() {}
+    selectBank() {
+        if (this.state.power) {
+            if (this.state.currentPadBankId === "Heater Kit") {
+                this.setState({
+                    display: "Smooth Piano Kit",
+                    currentPadBank: bankTwo,
+                    currentPadBankId: "Smooth Piano Kit",
+                });
+            } else {
+                this.setState({
+                    display: "Heater Kit",
+                    currentPadBank: bankOne,
+                    currentPadBankId: "Heater Kit",
+                });
+            }
+        }
+    }
+
+    adjustVolume(e) {
+        if (this.state.power) {
+            this.setState({
+                sliderValue: e.target.value,
+                display: "Volume: " + Math.round(e.target.value * 100),
+            });
+            setTimeout(() => this.clearDisplay(), 1000);
+        }
+    }
+
+    clearDisplay() {
+        this.setState({
+            display: String.fromCharCode(160),
+        });
+    }
+
+    displayClipName(name) {
+        if (this.state.power) {
+            this.setState({
+                display: name,
+            });
+        }
+    }
 
     render() {
-        return <h1>Drum</h1>;
+        const powerSlider = this.state.power
+            ? { float: "right" }
+            : { float: "left" };
+
+        const bankSlider =
+            this.state.currentPadBank === bankOne
+                ? { float: "left" }
+                : { float: "right" };
+
+        const clips = [].slice.call(
+            document.getElementsByClassName("audio-clip")
+        );
+        clips.forEach((clip) => {
+            clip.volume = this.state.sliderValue;
+        });
+
+        return (
+            <div className="container" id="drum-machine">
+                <PadBank
+                    power={this.state.power}
+                    clipVolume={this.state.sliderValue}
+                    currentPadBank={this.state.currentPadBank}
+                    updateDisplay={this.displayClipName}
+                />
+
+                <div className="controls-container">
+                    {/* Power Select */}
+                    <div className="control">
+                        <p>Power</p>
+                        <div className="select" onClick={this.powerControl}>
+                            <div className="inner" style={powerSlider} />
+                        </div>
+                    </div>
+
+                    {/* Display */}
+                    <p id="display">{this.state.display}</p>
+
+                    {/* Volume */}
+                    <div className="volume-slider">
+                        <input
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value={this.state.sliderValue}
+                            onChange={this.adjustVolume}
+                        />
+                    </div>
+
+                    {/* Bank Select */}
+                    <div className="control">
+                        <p>Bank</p>
+                        <div className="select" onClick={this.selectBank}>
+                            <div className="inner" style={bankSlider} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
