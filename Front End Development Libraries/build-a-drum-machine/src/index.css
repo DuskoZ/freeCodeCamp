@@ -22,9 +22,11 @@ body {
     font-family: "Orbitron", "Segoe UI", sans-serif;
     background-color: var(--clr-dark);
     color: var(--clr-light);
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    user-select: none;
 }
 
 #root {
@@ -41,6 +43,8 @@ body {
     position: relative;
 }
 
+/* Pad btns */
+
 #root .container .pad-bank {
     display: grid;
     grid-template-columns: repeat(3, 80px);
@@ -49,6 +53,7 @@ body {
 }
 
 #root .pad-bank .drum-pad {
+    cursor: pointer;
     color: var(--clr-accent);
     font-size: 1.5rem;
     font-weight: 600;
@@ -56,6 +61,8 @@ body {
     display: grid;
     place-items: center;
 }
+
+/* Logo */
 
 .container .logo-container {
     position: absolute;
@@ -68,4 +75,58 @@ body {
     font-size: 2.5rem;
     color: var(--clr-accent);
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* Controls */
+
+.container .controls-container {
+    width: 15rem;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.controls-container .control {
+    width: 6rem;
+    margin-inline: auto;
+}
+
+.controls-container .control p {
+    margin-bottom: 0.125em;
+}
+
+.controls-container .control .select {
+    background-color: var(--clr-dark);
+    width: 50px;
+    height: 24px;
+    padding: 1px;
+    border: 2px solid var(--clr-accent);
+    margin-inline: auto;
+}
+
+.controls-container .control .select .inner {
+    width: 22px;
+    height: 18px;
+    background-color: var(--clr-accent);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.controls-container #display {
+    font-weight: 600;
+    width: 13rem;
+    height: 3.25rem;
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+    border: 2px solid var(--clr-accent);
+    padding: 1em 0.5em;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
