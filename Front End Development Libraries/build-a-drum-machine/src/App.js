@@ -207,6 +207,11 @@ class App extends React.Component {
                     updateDisplay={this.displayClipName}
                 />
 
+                {/* Logo */}
+                <div className="logo-container">
+                    <h2 className="logo">eDrum</h2>
+                </div>
+
                 <div className="controls-container">
                     {/* Power Select */}
                     <div className="control">
