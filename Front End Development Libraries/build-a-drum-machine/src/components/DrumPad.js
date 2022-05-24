@@ -1,16 +1,17 @@
 import React from "react";
 
 const activeStyle = {
-    backgroundColor: "orange",
-    boxShadow: "0 3px orange",
-    height: 77,
+    backgroundColor: "#40826d",
+    height: 66,
     marginTop: 13,
+    color: "#fbfcff",
 };
 
 const inactiveStyle = {
-    backgroundColor: "grey",
+    backgroundColor: "#fbfcff",
     marginTop: 10,
-    boxShadow: "3px 3px 5px black",
+    border: "2px solid #40826d",
+    boxShadow: "0 0 15px rgba(0, 0, 0, 0.25)",
 };
 
 class DrumPad extends React.Component {
@@ -40,7 +41,7 @@ class DrumPad extends React.Component {
 
     activatePad() {
         if (this.props.power) {
-            if (this.state.padStyle.backgroundColor === "orange") {
+            if (this.state.padStyle.backgroundColor === "#40826d") {
                 this.setState({
                     padStyle: inactiveStyle,
                 });
@@ -56,10 +57,11 @@ class DrumPad extends React.Component {
         } else {
             this.setState({
                 padStyle: {
-                    height: 77,
+                    backgroundColor: "#40826d",
+                    height: 66,
                     marginTop: 13,
-                    backgroundColor: "grey",
-                    boxShadow: "0 3px grey",
+                    borderColor: "#fbfcff",
+                    color: "#fbfcff",
                 },
             });
         }
@@ -85,8 +87,9 @@ class DrumPad extends React.Component {
             >
                 <audio
                     id={this.props.keyTrigger}
-                    className="audio-clip"
+                    className="clip"
                     src={this.props.clip}
+                    type="audio/mpeg"
                 />
                 {this.props.keyTrigger}
             </div>

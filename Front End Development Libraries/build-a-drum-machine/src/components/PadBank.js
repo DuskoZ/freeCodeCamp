@@ -6,6 +6,7 @@ const PadBank = (props) => {
         padBank = props.currentPadBank.map((drumObject, i, padBankArray) => {
             return (
                 <DrumPad
+                    key={padBankArray[i].url}
                     power={props.power}
                     keyCode={padBankArray[i].keyCode}
                     keyTrigger={padBankArray[i].keyTrigger}
@@ -19,6 +20,7 @@ const PadBank = (props) => {
         padBank = props.currentPadBank.map((drumObject, i, padBankArray) => {
             return (
                 <DrumPad
+                    key={padBankArray[i].url}
                     power={props.power}
                     keyCode={padBankArray[i].keyCode}
                     keyTrigger={padBankArray[i].keyTrigger}
