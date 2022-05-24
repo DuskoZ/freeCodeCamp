@@ -7,8 +7,8 @@
 }
 
 :root {
-    --clr-dark: #333;
-    --clr-light: #fff;
+    --clr-dark: #222;
+    --clr-light: #fbfcff;
     --clr-accent: #40826d;
     --clr-accent2: #5f9ea0;
     --clr-bg: #a0e4f5;
@@ -112,13 +112,14 @@ body {
 .controls-container .control .select .inner {
     width: 22px;
     height: 18px;
-    background-color: var(--clr-accent);
+    background-color: var(--clr-light);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .controls-container #display {
-    font-weight: 600;
+    font-weight: 800;
+    letter-spacing: 1px;
     width: 13rem;
     height: 3.25rem;
     color: var(--clr-dark);
@@ -129,4 +130,95 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Volume slider */
+/* https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
+.controls-container input[type="range"] {
+    width: 10rem;
+    background-color: var(--clr-accent);
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: var(--clr-accent);
+    border-radius: 1.3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    border: 1px solid var(--clr-dark);
+    height: 25px;
+    width: 12px;
+    border-radius: 3px;
+    background: var(--clr-light);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: var(--clr-accent);
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: var(--clr-accent);
+    border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    border: 1px solid var(--clr-dark);
+    height: 25px;
+    width: 12px;
+    border-radius: 3px;
+    background: var(--clr-light);
+    cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background: var(--clr-accent);
+    border-radius: 2px;
+}
+
+input[type="range"]::-ms-fill-upper {
+    background: var(--clr-accent);
+    border-radius: 2px;
+}
+
+input[type="range"]::-ms-thumb {
+    height: 25px;
+    width: 12px;
+    border-radius: 3px;
+    background: var(--clr-light);
+    cursor: pointer;
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+    background: var(--clr-accent);
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+    background: var(--clr-accent);
 }
