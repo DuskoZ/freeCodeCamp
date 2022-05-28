@@ -13,14 +13,54 @@ class Calculator extends React.Component {
             currentSign: "pos",
             lastClicked: "",
         };
+
+        // this.allClear = this.allClear.bind(this);
+        // this.limitWarning = this.limitWarning.bind(this);
+        // this.handleOperator = this.handleOperator.bind(this);
+        // this.handleNumber = this.handleNumber.bind(this);
+        // this.handleDecimal = this.handleDecimal.bind(this);
+        // this.evaluate = this.evaluate.bind(this);
+    }
+
+    allClear() {
+        this.setState({
+            currentValue: "0",
+            prevValue: "0",
+            formula: "",
+            currentSign: "pos",
+            lastClicked: "",
+            // evaluated: false
+        });
+    }
+
+    limitWarning() {
+        console.log("digit limit");
+    }
+    handleOperator() {
+        console.log("operator click");
+    }
+    handleNumber() {
+        console.log("number click");
+    }
+    handleDecimal() {
+        console.log("decimal dot click");
+    }
+    evaluate() {
+        console.log("equals click");
     }
 
     render() {
         return (
             <div className="calculator">
-                <Formula />
-                <Result />
-                <Buttons />
+                <Formula formula={this.state.formula} />
+                <Result result={this.state.currentValue} />
+                <Buttons
+                    allClear={this.allClear}
+                    handleNumber={this.handleNumber}
+                    handleDecimal={this.handleDecimal}
+                    handleOperator={this.handleOperator}
+                    evaluate={this.evaluate}
+                />
             </div>
         );
     }
