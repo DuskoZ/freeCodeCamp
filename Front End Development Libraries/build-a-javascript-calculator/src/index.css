@@ -16,4 +16,102 @@
     --box-shadow-light: 0 0 15px rgba(0, 0, 0, 0.25);
     --br: 0.5rem;
     --transition: all 0.3s ease;
+
+    --ff-display: "Gemunu Libre", sans-serif;
+    --ff-button: "Saira", sans-serif;
+}
+
+body {
+    font-family: var(--ff-button);
+    background-color: var(--clr-dark);
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.calculator {
+    background-color: #111;
+    width: 20rem;
+    padding: 0.25em;
+    border: 2px solid var(--clr-accent);
+    border-radius: var(--br);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template: 1.25rem 2.5rem 20rem / 1fr;
+}
+
+.formula-display,
+.result-display {
+    font-family: var(--ff-display);
+    font-size: 1.125rem;
+    text-align: right;
+    color: var(--clr-accent);
+    padding-inline: 5px;
+    width: 100%;
+}
+
+.formula-display {
+    letter-spacing: 1px;
+}
+
+.result-display {
+    font-size: 2rem;
+    color: var(--clr-light);
+}
+
+.btn-container {
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    gap: 2px;
+}
+
+.btn-container button {
+    cursor: pointer;
+    border: none;
+    color: var(--clr-light);
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-container button:hover {
+    opacity: 0.7;
+}
+
+.btn-container button:active {
+    color: var(--clr-accent);
+}
+
+.btn-container .operation:active,
+.btn-container #clear:active,
+.btn-container #equals:active {
+    color: var(--clr-dark);
+}
+
+.btn-container button:focus {
+    outline: none;
+}
+
+.btn-container .number,
+.btn-container #decimal {
+    background-color: #4d4d4d;
+}
+
+.btn-container .operation {
+    background-color: var(--clr-accent);
+}
+
+.btn-container #clear {
+    grid-column: 1 / span 2;
+    background-color: rgb(180, 25, 0);
+}
+
+.btn-container #decimal {
+    grid-column: 3 / 4;
+}
+
+.btn-container #equals {
+    grid-area: 4 / 4 / 6 / 5;
+    background-color: var(--clr-accent2);
 }
