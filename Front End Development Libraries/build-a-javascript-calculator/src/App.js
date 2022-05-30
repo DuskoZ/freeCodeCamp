@@ -23,6 +23,7 @@ class Calculator extends React.Component {
         this.evaluate = this.evaluate.bind(this);
     }
 
+    // Methods
     allClear() {
         this.setState({
             currentValue: "0",
@@ -42,7 +43,7 @@ class Calculator extends React.Component {
 
         setTimeout(() => {
             this.setState({ currentValue: this.state.prevValue });
-        }, 1000);
+        }, 1500);
     }
 
     handleOperator(e) {
@@ -106,10 +107,59 @@ class Calculator extends React.Component {
         }
     }
 
-    handleDecimal() {}
+    handleDecimal() {
+        if (this.state.evaluated === true) {
+            this.setState({
+                currentValue: "0.",
+                formula: "0.",
+                evaluated: false,
+            });
+        } else if (
+            !this.state.currentValue.includes(".") &&
+            !this.state.currentValue.includes("Limit")
+        ) {
+            this.setState({ evaluated: false });
+
+            if (this.state.currentValue.length > 17) {
+                this.limitWarning();
+            } else if (
+                /[*/+-]$/.test(this.state.formula) ||
+                (this.state.currentValue === "0" && this.state.formula === "")
+            ) {
+                this.setState({
+                    currentValue: "0.",
+                    formula: this.state.formula + "0.",
+                });
+            } else {
+                this.setState({
+                    currentValue:
+                        this.state.formula.match(/(-?\d+\.?\d*)$/)[0] + ".",
+                    formula: this.state.formula + ".",
+                });
+            }
+        }
+    }
 
     evaluate() {
-        console.log("equals click");
+        if (!this.state.currentValue.includes("Limit")) {
+            let formulaDisplay = this.state.formula;
+
+            while (/[*/+-]$/.test(formulaDisplay)) {
+                formulaDisplay = formulaDisplay.slice(0, -1);
+            }
+
+            formulaDisplay = formulaDisplay.replace("--", "+");
+
+            let result =
+                Math.round(100000000 * eval(formulaDisplay)) / 100000000;
+
+            this.setState({
+                currentValue: result.toString(),
+                formula: formulaDisplay + "=" + result,
+                prevValue: result,
+                evaluated: true,
+            });
+        }
     }
 
     render() {
