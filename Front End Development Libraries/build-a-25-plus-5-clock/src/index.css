@@ -29,6 +29,7 @@ body {
     display: grid;
     place-content: center;
     text-align: center;
+    user-select: none;
 }
 
 .app {
@@ -62,6 +63,39 @@ body {
     border: 2px solid var(--clr-accent);
     border-radius: 2rem;
     box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.app .length-container .break-icons div,
+.app .length-container .session-icons div {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.app .length-container .icon i,
+.app .controls-container .icon i {
+    transition: var(--transition);
+}
+
+.app .length-container .icon:hover i {
+    color: var(--clr-accent);
+    animation: rotation 0.5s linear;
+}
+
+.app .controls-container .icon:hover i {
+    color: var(--clr-accent);
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
 }
 
 .app .length-container h2,
@@ -72,11 +106,7 @@ body {
 }
 
 .app .length-container .num {
-    height: 100%;
-    width: 100%;
     background-color: var(--clr-accent);
-    display: grid;
-    place-items: center;
 }
 
 .app .length-container .num p {
@@ -99,14 +129,19 @@ body {
 }
 
 .app .timer-container #timer-label {
+    width: 6.5rem;
+    height: 1.875rem;
     letter-spacing: 1px;
     background-color: var(--clr-accent);
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0.125em 0.75em;
     border-radius: 1rem;
+    margin-bottom: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .app .controls-container {
