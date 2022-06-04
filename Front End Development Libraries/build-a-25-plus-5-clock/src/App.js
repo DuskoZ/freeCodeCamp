@@ -3,6 +3,7 @@ import Break from "./components/Break";
 import Controls from "./components/Controls";
 import Session from "./components/Session";
 import Timer from "./components/Timer";
+const audio = document.getElementById("beep");
 
 class App extends React.Component {
     constructor(props) {
@@ -100,9 +101,58 @@ class App extends React.Component {
         }
     }
 
-    handlePlayPause() {}
+    handlePlayPause() {
+        const { isPlaying } = this.state;
 
-    handleReset() {}
+        if (isPlaying) {
+            clearInterval(this.loop);
+
+            this.setState({
+                isPlaying: false,
+            });
+        } else {
+            this.setState({
+                isPlaying: true,
+            });
+
+            this.loop = setInterval(() => {
+                const { clockCount, currentTimer, breakCount, sessionCount } =
+                    this.state;
+
+                if (clockCount === 0) {
+                    this.setState({
+                        currentTimer:
+                            currentTimer === "Session" ? "Break" : "Session",
+                        clockCount:
+                            currentTimer === "Session"
+                                ? breakCount * 60
+                                : sessionCount * 60,
+                    });
+
+                    audio.play();
+                } else {
+                    this.setState({
+                        clockCount: clockCount - 1,
+                    });
+                }
+            }, 1000);
+        }
+    }
+
+    handleReset() {
+        this.setState({
+            breakCount: 5,
+            sessionCount: 25,
+            clockCount: 25 * 60,
+            currentTimer: "Session",
+            isPlaying: false,
+        });
+
+        clearInterval(this.loop);
+
+        audio.pause();
+        audio.currentTime = 0;
+    }
 
     render() {
         const {
@@ -129,7 +179,7 @@ class App extends React.Component {
                         handleSessionIncrease={this.handleSessionIncrease}
                     />
                 </div>
-                <Timer currentTimer={currentTimer} />
+                <Timer currentTimer={currentTimer} clockCount={clockCount} />
                 <Controls
                     isPlaying={isPlaying}
                     handlePlayPause={this.handlePlayPause}
