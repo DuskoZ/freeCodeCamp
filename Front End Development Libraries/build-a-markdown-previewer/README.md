@@ -1,6 +1,6 @@
 # freeCodeCamp Course: Front End Development Libraries
 
-**Demo:** [Markdown Previewer](https://github.com/)
+**Demo:** [Markdown Previewer](https://markdown-previewer-dz.netlify.app/)
 
 ## Project #2 - Build a Markdown Previewer
 
