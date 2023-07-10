@@ -1,5 +1,7 @@
 # freeCodeCamp Course: Front End Development Libraries
 
+**Demo:** [Drum machine](https://drum-machine-dz.netlify.app/)
+
 ## Project #3 - Build a Drum Machine
 
 **Objective**: Build a CodePen.io app that is functionally similar to this: [Codepen link](https://codepen.io/freeCodeCamp/full/MJyNMd).

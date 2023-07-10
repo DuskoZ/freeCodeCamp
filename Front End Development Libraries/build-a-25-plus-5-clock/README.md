@@ -1,5 +1,7 @@
 # freeCodeCamp Course: Front End Development Libraries
 
+**Demo:** [25 + 5 clock](https://clock25plus5.netlify.app/)
+
 ## Project #5 - Build a 25 + 5 Clock
 
 Objective: Build a CodePen.io app that is functionally similar to this: [Codepen link](https://codepen.io/freeCodeCamp/full/XpKrrW).

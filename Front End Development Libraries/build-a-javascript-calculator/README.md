@@ -1,5 +1,7 @@
 # freeCodeCamp Course: Front End Development Libraries
 
+**Demo:** [JS Calculator](https://js-calculator-dz.netlify.app/)
+
 ## Project #4 - Build a JavaScript Calculator
 
 **Objective:** Build a CodePen.io app that is functionally similar to this: [Codepen link](https://codepen.io/freeCodeCamp/full/wgGVVX).
